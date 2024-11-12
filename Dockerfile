@@ -17,8 +17,15 @@ FROM eclipse-temurin:17-jre
 # Set the working directory
 WORKDIR /app
 
+# Set environment variables
+ENV HTTP_PORT=2080 \
+    TCP_PORT=2021 
+
 # Copy the JAR file from the build stage
 COPY --from=build /app/target/*.jar app.jar
+
+# Expose the application's port (matches APP_PORT)
+EXPOSE 2080 2021
 
 # Run the JAR file
 ENTRYPOINT ["java", "-jar", "app.jar"]
