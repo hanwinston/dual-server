@@ -34,7 +34,7 @@ public class DualServer {
 
     // TCP Server to listen on port 2021
     public static void startTcpServer() {
-        String tcpPortStr = System.getenv("HTTP_PORT");
+        String tcpPortStr = System.getenv("TCP_PORT");
         int tcpPort = Integer.parseInt((tcpPortStr != null) ? tcpPortStr : "2021");
         try (ServerSocket serverSocket = new ServerSocket(tcpPort)) {
             System.out.println("TCP Server is listening on port" + tcpPort + "...");
